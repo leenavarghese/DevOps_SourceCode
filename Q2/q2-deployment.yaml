@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: q2
+  labels: 
+    app: q2-deployment
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: q2-FinalExam
+  template:
+    metadata:
+      labels:
+        app: q2-FinalExam
+    spec:
+      containers:
+      - name: q2
+        image: shubham0210/devops_final_q2
+        # In case we have the image in local repository we can uncomment the following line and use local image name 
+        #imagePullPolicy: Never

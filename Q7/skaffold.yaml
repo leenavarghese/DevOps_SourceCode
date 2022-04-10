@@ -1,0 +1,9 @@
+apiVersion: skaffold/v2beta28
+kind: Config
+build:
+  artifacts:
+  - image: q7_image
+deploy:
+  kubectl:
+    manifests:
+      - q7-*

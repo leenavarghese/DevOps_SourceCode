@@ -1,0 +1,28 @@
+# Default values for demoQ4.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+metadata:
+  name: "q4"
+  labels:
+    app: "q4-deployment"
+
+replicaCount: 2
+
+specLabel: "q4-FinalExam"
+
+image:
+  name: "q4"
+  repository: shubham0210/devops_final_q2
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+serviceName: "q4-service"
+ports:
+  protocol: TCP
+  targetPort: 80
+  port: 80
+  nodePort: 30007
+
+serviceSelectorName: "q4-FinalExam"
+serviceType: "NodePort"

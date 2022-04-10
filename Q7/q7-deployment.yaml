@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: q7
+  labels: 
+    app: q7-deployment
+spec:
+  selector: 
+    matchLabels:
+      app: q7-FinalExam
+  template:
+    metadata:
+      labels:
+        app: q7-FinalExam
+    spec:
+      containers:
+      - name: q7
+        image: q7_image
+        
