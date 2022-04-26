@@ -1,0 +1,81 @@
+sudo minikube start --vm-driver=none
+52.5.202.222
+*****************************************************************************************************************************
+
+# Q1 
+cd Q1
+docker build -t q1_image .
+docker run -d -p 80:80 q1_image
+52.5.202.222
+
+*****************************************************************************************************************************
+
+# Q2
+cd Q2
+k delete deploy q6
+k delete service q6-service
+
+k apply -f q2-deployment.yaml
+k apply -f q2-service.yaml
+k get deploy
+k get svc
+k get pods
+k delete deploy/q2
+k delete svc/q2-service
+
+*****************************************************************************************************************************
+
+#Q3
+docker run -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock jenkinsci/blueocean
+docker logs containerName
+git remote -v
+docker images
+Change any file.
+git add .
+git commit -m "Demo"
+git push origin master
+docker images
+
+*****************************************************************************************************************************
+#Q4
+helm install ques4 demoQ4/
+Chnage Configuration and re-run the above command
+helm upgrade ques4 demoQ4/
+
+# To check revision
+helm list 
+helm history  ques4
+helm uninstall ques4
+*****************************************************************************************************************************
+# Q5
+helm install ques4 Q4/demoQ4/
+# Removes the Pod
+sudo kubectl-evict-pod {podName}
+helm uninstall ques4
+*****************************************************************************************************************************
+# Q6
+k delete deploy q6
+k delete svc q6-service
+git add .
+git commit -m "Replica Changed"
+k logs deploy/flux -n flux -f | grep apply
+k get pods -A
+
+*****************************************************************************************************************************
+# Q7
+cd Q7
+sudo skaffold dev
+In new terminal
+./test_script.sh
+Change the content of index.html file to see the changes 
+
+*****************************************************************************************************************************
+# Q8
+cd Q8
+sudo docker-compose up
+k apply -f fluentd-daemonset.yaml`
+http://52.5.202.222:5601
+helm install ques4 ../Q4/demoQ4/
+in new terminal
+./test_script.sh
+check logs and container ids to verify

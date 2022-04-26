@@ -1,0 +1,20 @@
+sudo minikube addons enable metrics-server
+sudo helm repo add prometheus-community https://prometheuscommunity.github.io/helm-chartssudo helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+sudo helm pull prometheus-community/prometheus
+tar zxvf prometheus-15.5.4.tgz
+cd prometheus
+sudo helm install prometheus .
+k edit svc prometheus-server  ( from Cluster IP to Node Port)
+
+-----
+sudo helm repo add grafana https://grafana.github.io/helm-charts
+sudo helm repo update
+sudo helm install grafana grafana/grafana
+k edit svc grafana
+k get secret grafana -o jsonpath='{.data}'
+echo "dDJmV2h3NXoya1lXWVpKQ01BS0tGQ2tOYnlhRXVRRTRKN0ZRajFCTQ==" | base64 --decode
+t2fWhw5z2kYWYZJCMAKKFCkNbyaEuQE4J7FQj1BM
+
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
